@@ -8,21 +8,16 @@ import {
   Pressable,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 import { RegularFont, MediumFont } from "../util/Poppins";
 
-import BackIcon from "../../assets/images/ic_back.svg";
 import PinIcon from "../../assets/images/ic_pin.svg";
 import BulbIcon from "../../assets/images/ic_bulb_white.svg";
 import StarIcon from "../../assets/images/ic_star.svg";
 
 import ModalScreen from "../screen/ModalScreen";
 
-import Header from "../components/Header";
-
 function DetailScreen({ route }) {
-
   const [booked, setBooked] = useState(false);
 
   const [visible, setVisible] = useState(false);
@@ -58,93 +53,87 @@ function DetailScreen({ route }) {
   };
 
   return (
-    <LinearGradient colors={["#5C49DA", "#1F88D0"]} style={{ flex: 1 }}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <>
-          <Header leftIcon={<BackIcon/>}>{""}</Header>
-
-          <View style={styles.contentContainer}>
-            <Image style={styles.picture} source={{ uri: picture }} />
-            <MediumFont style={styles.name}>{name}</MediumFont>
-            <RegularFont style={styles.email}>{email}</RegularFont>
-            <View style={styles.innerCenterContainer}>
-              <View style={styles.countryContainer}>
-                <PinIcon height={18} width={18} />
-                <RegularFont style={styles.country}>{country}</RegularFont>
-              </View>
-              <View style={styles.subjectContainer}>
-                <BulbIcon height={18} width={18} />
-                <RegularFont style={styles.subject}>{subject}</RegularFont>
-              </View>
-              <View style={styles.cardCenterContainer}>
-                <MediumFont style={styles.about}>
-                  {"About the tutor"}
-                </MediumFont>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                  <RegularFont style={styles.content}>
-                    {
-                      "Vestibulum nec vehicula magna. Curabitur volutpat porta nulla, vel mattis quam consequat eget. Sed ornare massa ut mi gravida tincidunt. Ut finibus et orci sit amet luctus. Vestibulum felis sem, porttitor vitae porta eget, accumsan quis nibh. In faucibus neque at ultricies vehicula. Sed finibus tellus sit amet semper vehicula. Nam tempor, magna tincidunt rhoncus porttitor, enim mi mollis felis, ac lobortis quam nisi et odio. Praesent feugiat sagittis ullamcorper. Suspendisse potenti. Aliquam sed interdum ante. Nulla orci elit, commodo eget felis sit amet, malesuada accumsan tellus. Vivamus molestie commodo enim commodo fermentum. Fusce mattis rhoncus lectus ac tempus. Etiam metus diam, ullamcorper vitae luctus et, sagittis eu elit. Curabitur sodales semper vulputate. Phasellus eu fringilla dui. Duis semper sodales imperdiet. Maecenas maximus dignissim mauris ut pretium. In fringilla, nisi ut pharetra rhoncus, leo diam aliquet ligula, sed sodales nunc tortor sed neque. Integer id nisl in nisl accumsan ultrices sed mollis mi. Nulla lobortis, lorem eu hendrerit sodales, erat quam tristique urna, eget hendrerit leo tellus sit amet augue. Nunc imperdiet eros at vestibulum ultrices. Aliquam erat volutpat. Nullam aliquet id est in congue. Phasellus rutrum eget velit in ullamcorper. Nulla purus dui, varius eu convallis non, hendrerit et ligula. Maecenas sapien velit, vehicula in accumsan eu, pellentesque eu erat. Praesent rutrum accumsan nulla, a tempor felis. Phasellus et eros ullamcorper ipsum congue porttitor. Aliquam ut eros maximus lorem tincidunt pulvinar. Sed ac nulla id ipsum fringilla condimentum ac sit amet orci. Duis nec vestibulum magna, vitae rutrum eros. In non cursus tellus. Phasellus at neque nec erat sodales varius. Cras egestas sapien diam, non laoreet erat dapibus ut. Pellentesque imperdiet accumsan velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    }
-                  </RegularFont>
-                </ScrollView>
-              </View>
+    <>
+      <LinearGradient colors={["#5C49DA", "#1F88D0"]} style={{ flex: 1 }}>
+        <View style={styles.contentContainer}>
+          <Image style={styles.picture} source={{ uri: picture }} />
+          <MediumFont style={styles.name}>{name}</MediumFont>
+          <RegularFont style={styles.email}>{email}</RegularFont>
+          <View style={styles.innerCenterContainer}>
+            <View style={styles.countryContainer}>
+              <PinIcon height={18} width={18} />
+              <RegularFont style={styles.country}>{country}</RegularFont>
+            </View>
+            <View style={styles.subjectContainer}>
+              <BulbIcon height={18} width={18} />
+              <RegularFont style={styles.subject}>{subject}</RegularFont>
+            </View>
+            <View style={styles.cardCenterContainer}>
+              <MediumFont style={styles.about}>{"About the tutor"}</MediumFont>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                <RegularFont style={styles.content}>
+                  {
+                    "Vestibulum nec vehicula magna. Curabitur volutpat porta nulla, vel mattis quam consequat eget. Sed ornare massa ut mi gravida tincidunt. Ut finibus et orci sit amet luctus. Vestibulum felis sem, porttitor vitae porta eget, accumsan quis nibh. In faucibus neque at ultricies vehicula. Sed finibus tellus sit amet semper vehicula. Nam tempor, magna tincidunt rhoncus porttitor, enim mi mollis felis, ac lobortis quam nisi et odio. Praesent feugiat sagittis ullamcorper. Suspendisse potenti. Aliquam sed interdum ante. Nulla orci elit, commodo eget felis sit amet, malesuada accumsan tellus. Vivamus molestie commodo enim commodo fermentum. Fusce mattis rhoncus lectus ac tempus. Etiam metus diam, ullamcorper vitae luctus et, sagittis eu elit. Curabitur sodales semper vulputate. Phasellus eu fringilla dui. Duis semper sodales imperdiet. Maecenas maximus dignissim mauris ut pretium. In fringilla, nisi ut pharetra rhoncus, leo diam aliquet ligula, sed sodales nunc tortor sed neque. Integer id nisl in nisl accumsan ultrices sed mollis mi. Nulla lobortis, lorem eu hendrerit sodales, erat quam tristique urna, eget hendrerit leo tellus sit amet augue. Nunc imperdiet eros at vestibulum ultrices. Aliquam erat volutpat. Nullam aliquet id est in congue. Phasellus rutrum eget velit in ullamcorper. Nulla purus dui, varius eu convallis non, hendrerit et ligula. Maecenas sapien velit, vehicula in accumsan eu, pellentesque eu erat. Praesent rutrum accumsan nulla, a tempor felis. Phasellus et eros ullamcorper ipsum congue porttitor. Aliquam ut eros maximus lorem tincidunt pulvinar. Sed ac nulla id ipsum fringilla condimentum ac sit amet orci. Duis nec vestibulum magna, vitae rutrum eros. In non cursus tellus. Phasellus at neque nec erat sodales varius. Cras egestas sapien diam, non laoreet erat dapibus ut. Pellentesque imperdiet accumsan velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  }
+                </RegularFont>
+              </ScrollView>
             </View>
           </View>
+        </View>
 
-          <View style={styles.mainCardBottomContainer}>
-            <View style={styles.cardBottomContainer}>
-              <View>
-                <View
-                  style={styles.cardContentContainer}
-                  marginRight={30}
-                  marginBottom={5}
-                >
-                  <MediumFont style={styles.price}>₱{price}</MediumFont>
-                </View>
-                <View style={styles.cardContentContainer} marginRight={30}>
-                  <RegularFont style={styles.hourLesson}>
-                    {hour}-Hour Lesson
-                  </RegularFont>
-                </View>
-              </View>
-              <View>
-                <View style={styles.cardContentContainer} marginBottom={5}>
-                  <StarIcon height={18} width={18} />
-                  <MediumFont style={styles.rating}>{rating}</MediumFont>
-                </View>
-                <View style={styles.cardContentContainer}>
-                  <RegularFont style={styles.review}>
-                    {review} Review{review !== 1 ? "s" : ""}
-                  </RegularFont>
-                </View>
-              </View>
-            </View>
-
-            <Pressable
-              disable={booked === true ? false : true}
-              onPress={() => (booked !== true ? onLoadBooking() : "")}
-            >
+        <View style={styles.mainCardBottomContainer}>
+          <View style={styles.cardBottomContainer}>
+            <View>
               <View
-                style={styles.buttonContainer}
-                backgroundColor={booked === true ? "#DD8859" : "#76DD59"}
+                style={styles.cardContentContainer}
+                marginRight={30}
+                marginBottom={5}
               >
-                <MediumFont style={styles.buttonText}>
-                  {booked === true ? "Booked" : "Book a session"}
-                </MediumFont>
+                <MediumFont style={styles.price}>₱{price}</MediumFont>
               </View>
-            </Pressable>
-
-            <ActivityIndicator
-              size="small"
-              color="#0000ff"
-              animating={bookingLoaded}
-            />
-
-            <ModalScreen visible={visible} />
+              <View style={styles.cardContentContainer} marginRight={30}>
+                <RegularFont style={styles.hourLesson}>
+                  {hour}-Hour Lesson
+                </RegularFont>
+              </View>
+            </View>
+            <View>
+              <View style={styles.cardContentContainer} marginBottom={5}>
+                <StarIcon height={18} width={18} />
+                <MediumFont style={styles.rating}>{rating}</MediumFont>
+              </View>
+              <View style={styles.cardContentContainer}>
+                <RegularFont style={styles.review}>
+                  {review} Review{review !== 1 ? "s" : ""}
+                </RegularFont>
+              </View>
+            </View>
           </View>
-        </>
-      </SafeAreaView>
-    </LinearGradient>
+
+          <Pressable
+            disable={booked === true ? false : true}
+            onPress={() => (booked !== true ? onLoadBooking() : "")}
+          >
+            <View
+              style={styles.buttonContainer}
+              backgroundColor={booked === true ? "#DD8859" : "#76DD59"}
+            >
+              <MediumFont style={styles.buttonText}>
+                {booked === true ? "Booked" : "Book a session"}
+              </MediumFont>
+            </View>
+          </Pressable>
+
+          <ActivityIndicator
+            size="small"
+            color="#0000ff"
+            animating={bookingLoaded}
+          />
+
+          <ModalScreen visible={visible} />
+        </View>
+      </LinearGradient>
+    </>
   );
 }
 
@@ -153,6 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
+    marginTop: 20,
   },
   picture: {
     width: 80,

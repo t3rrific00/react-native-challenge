@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from "@react-navigation/native";
@@ -16,7 +17,7 @@ import DetailScreen from "./src/screen/DetailScreen";
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator screenOptions={{headerShown: false}}>
+    <Drawer.Navigator>
       <Drawer.Screen
         name="Home"
         component={HomeScreen} />
@@ -26,15 +27,25 @@ function DrawerNavigator() {
 
 export default function App() {
   return (
+    <>
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator>
         <Stack.Screen
-          name="HomeScreen"
-          component={DrawerNavigator} />
+          name="Drawer"
+          component={DrawerNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
-          name="DetailScreen"
-          component={DetailScreen} />
+          name="ExpertDetail"
+          component={DetailScreen}
+          options={{
+            title: '',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
+    </>
   );
 }
